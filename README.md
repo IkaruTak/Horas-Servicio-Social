@@ -1,6 +1,8 @@
 # Horas-Servicio-Social
 Script en Python para llevar registro del avance en el Servicio Social
 
+El script principal es horas.py, es el que deberá ser ejecutado.
+
 El programa está pensado y operando en Linux Mint.
 Si no funciona en otra plataforma, favor de intentar modificando el archivo "found.py"
 ya que este encuentra las rutas a los archivos que lo alimentan.
