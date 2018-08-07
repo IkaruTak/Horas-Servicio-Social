@@ -5,7 +5,7 @@ El programa está pensado y operando en Linux Mint.
 Si no funciona en otra plataforma, favor de intentar modificando el archivo "found.py"
 ya que este encuentra las rutas a los archivos que lo alimentan.
 
-Los archivos *.txt están cargados con mi información, requerirá ser borrada (la información, los archivos
+Los archivos *.txt están cargados con mi información, requerirá ser borrada (sólo la información dentro, los archivos
 son importantes) para poder funcionar de 0.
 
 Siguiente actualización esperada:
