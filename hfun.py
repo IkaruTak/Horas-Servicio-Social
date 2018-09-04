@@ -30,7 +30,7 @@ def agregar():
             hist = time.strftime("%A %d, %b")+" "*(20 - len(time.strftime("%A %d, %b")))+str(nh)+"\t"+str(h)+"\n"
             fop.addf(fhistorial,hist)
             if (nh > 4):
-                fop.writef(fextras,fop.readf(fextras)+nh)
+                fop.writef(fextras,fop.readf(fextras)+(nh-4))
             elif (nh < 4):
                 h = fop.readf(fextras)
                 fop.writef(fextras,fop.readf(fextras)-(4-nh))
