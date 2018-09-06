@@ -63,6 +63,17 @@ def simulacion():
         print("Solo faltan", 480 - h, "horas:", m, "meses,", d, "dias y", hr, "horas.\n")
     else:
         print("Solo faltan", 480 - h, "horas:", m, "meses y", d, "dias.\n")
+    h = fop.readf(fextras)
+    if (nh > 4):
+        h += nh-4
+    if (nh < 4):
+        h -= 4-nh
+    if h > 0:
+        print("Tenemos", h, "horas extra registradas.\n")
+    elif h < 0:
+        print("Debemos", (h)*-1 , "horas.\n")
+    else:
+        print("No hay diferencia de horas.\n")
 
 def historial():
     with open(fhistorial,"r") as f:

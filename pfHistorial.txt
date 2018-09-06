@@ -60,3 +60,5 @@ Tuesday 28, Aug     4	240
 Wednesday 29, Aug   5	245
 Thursday 30, Aug    4	249
 Friday 31, Aug      4	253
+Tuesday 04, Sep     7	260
+Wednesday 05, Sep   7	267
