@@ -5,9 +5,8 @@ while(1):
     print("1- Agregar horas.")
     print("2- Consultar historial.")
     print("3- Consultar resumen.")
-    print("4- Horas extras o pagadas.")
-    print("5- Registrar faltas.")
-    print("6- Consultar faltas.")
+    print("4- Registrar faltas.")
+    print("5- Consultar faltas.")
     print("9- Hacer simulacion de horas.")
     print("0- Salir\n")
     menu = input()
@@ -19,10 +18,8 @@ while(1):
     elif (menu == '3'):
         hfun.resumen()
     elif (menu == '4'):
-        hfun.extras()
-    elif (menu == '5'):
         hfun.rfaltas()
-    elif (menu == '6'):
+    elif (menu == '5'):
         hfun.cfaltas()
     elif (menu == '9'):
         hfun.simulacion()

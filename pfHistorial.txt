@@ -92,3 +92,7 @@ Wednesday 17, Oct   4	376
 Thursday 18, Oct    4	380
 Friday 19, Oct      4	384
 Monday 22, Oct      4	388
+Wednesday 24, Oct   4	392
+Thursday 25, Oct    4	396
+Friday 26, Oct      4	400
+Monday 29, Oct      4	404
