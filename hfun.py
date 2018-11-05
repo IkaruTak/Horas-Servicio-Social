@@ -20,21 +20,22 @@ def agregar():
             fop.writef(fhoras,h)
             hist = time.strftime("%A %d, %b")+" "*(20 - len(time.strftime("%A %d, %b")))+str(nh)+"\t"+str(h)+"\n"
             fop.addf(fhistorial,hist)
-            if (nh > 4):
-                fop.writef(fextras,fop.readf(fextras)+(nh-4))
-            elif (nh < 4):
-                fop.writef(fextras,fop.readf(fextras)-(4-nh))
+            if nh != 4:
+                fop.writef(fextras,fop.readf(fextras) + (nh-4 if nh > 4 else -(4-nh)))
         else:
             print("\tNo se pueden agregar horas negativas o 0.\n\n")
 
 def resumen(nh = 0):
-    tf = u.timeFinder(nh)
-    print("\tTotal de horas cubiertas:", tf['h'])
-    u.prestante(480 - tf['h'], tf['m'], tf['d'], tf['hr'])
-    print("\tLlevamos", fop.readf(fnfaltas), "faltas.\n")
-    u.drestante(tf['d'], tf['hr'])
-    u.extras()
-    return tf['h']
+    h = fop.readf(fhoras) + nh
+    m = int(((480 - h) / 4) // 20)
+    d = int(((480 - h) / 4) % 20)
+    hr = 480 - h - ((m*20*4) + (d*4))
+    print("\tTotal de horas cubiertas:", h)
+    u.prestante(480 - h, m, d, hr)
+    print("\tLlevamos", fop.readf(fnfaltas), "faltas.")
+    u.extras(nh if nh != 0 else 4)
+    u.drestante(d, hr)
+    return h
 
 def simulacion():
     nh = u.add()

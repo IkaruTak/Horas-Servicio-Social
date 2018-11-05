@@ -1,23 +1,25 @@
 import time
-import fop
+from fop import readf as rf
 from found import found
 from datetime import datetime, timedelta
 
 fextras = found("pfHorasExtras.txt")
 fhoras = found("pfHoras.txt")
 
-def extras(nh = 4):
-    h = fop.readf(fextras)
+def extras(nh):
+    h = rf(fextras)
     if (nh > 4):
         h += nh-4
     elif (nh < 4):
         h -= 4-nh
     if h > 0:
-        print("\tTenemos", h, "horas extra registradas.\n\n")
+        print("\tTenemos", h, "hora" + ("s" if h > 1 else ""), "extra registrada" + ("s." if h > 1 else "."))
     elif h < 0:
-        print("\tDebemos", (h)*-1 , "horas.\n\n")
+        print("\tDebemos", (h)*-1 , "hora" + ("s." if h < -1 else "."))
     else:
-        print("\tNo hay diferencia de horas.\n\n")
+        print("\tNo hay diferencia de horas.\n")
+        return
+    print("\t(Ya incluida" + ("s" if h > 1 else ""), "en el conteo)\n")
 
 def prestante(h, m, d, hr):
     if h > 0:
@@ -42,7 +44,7 @@ def drestante(d,hr):
         md = addDay(md)
     if hr > 0:
         md = addDay(md)
-    print("\tFinal tentativo:", md.strftime("%A %d, %b"))
+    print("\tFinal tentativo:", md.strftime("%A %d, %b"), "\n\n")
 
 def addDay(md):
     md += timedelta(days = 1)
@@ -50,16 +52,8 @@ def addDay(md):
         md += timedelta(days = 2)
     return md
 
-def timeFinder(nh = 0):
-    h = fop.readf(fhoras) + nh
-    m = int(((480 - h) / 4) // 20)
-    d = int(((480 - h) / 4) % 20)
-    hr = 480 - h - ((m*20*4) + (d*4))
-    list = {'h':h, 'm':m, 'd':d, 'hr':hr}
-    return list
-
 def add():
-    h = fop.readf(fhoras)
+    h = rf(fhoras)
     print("\tHasta hoy hemos cubierto", h, "horas\n")
     nh = int(input("\tCuantas horas fueron hoy? "))
     return nh
